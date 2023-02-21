@@ -38,8 +38,7 @@ print(Grid[0], Grid[1], Grid[2],"\n" + Grid[3], Grid[4], Grid[5], "\n" + Grid[6]
 
 
 while AIoff:
-    try:
-        UserInput = int(input(WhichPlayer + ": "))
+    try: UserInput = int(input(WhichPlayer + ": "))
     except:
         print("\nType in a number 1-9 which hasn't been used.\n")
         continue
@@ -69,14 +68,13 @@ while AIon:
         AIChoice = random.choice([1,2,3,4,5,6,7,8,9])
         if Grid[AIChoice-1] != "-": continue
         for x in range(len(Grid)):
-            if Grid[x] == "-" and AIChoice == x+1:
-                Grid[x] = GridValue
+            if Grid[x] == "-" and AIChoice == x+1: Grid[x] = GridValue
         print("AI:", AIChoice)
         print(Grid[0], Grid[1], Grid[2],"\n" + Grid[3], Grid[4], Grid[5], "\n" + Grid[6], Grid[7], Grid[8],"\n")
+        GameEnd()
         WhichPlayer = WhichPlayer.replace("AI","You")
 
-    try: 
-        UserInput = int(input(WhichPlayer + ": "))
+    try: UserInput = int(input(WhichPlayer + ": "))
     except: 
         print("\nType in a number 1-9 which hasn't been used.\n")
         continue
@@ -88,9 +86,7 @@ while AIon:
     
     GridValue = "X"
     for y in range(len(Grid)):
-        if Grid[y] == "-" and UserInput == y+1:
-            Grid[y] = GridValue
+        if Grid[y] == "-" and UserInput == y+1: Grid[y] = GridValue
 
     print(Grid[0], Grid[1], Grid[2],"\n" + Grid[3], Grid[4], Grid[5], "\n" + Grid[6], Grid[7], Grid[8],"\n")
-
     GameEnd()
